@@ -1,37 +1,41 @@
 #include <stdio.h>
 #include <string.h>
 
-void init_arrays(char words[40320][8], int row, int col)
+int check_word(char *word, int len)
 {
-	for(int i = 0; i < row; i++)
+	int i = 0;
+	while (i < len)
 	{
-		bzero(words[i], col);
+		if (word[i] == '\0')
+			i++;
+		else
+			return (-1);
 	}
-}
-
-void dfs(char *s, char *cs)
-{
-	for (int i = 0; i < strlen(cs); i++)
-	{
-		dfs();
-	}
-}
-
-int main ()
-{
-	char buf[256];
-	char *s_in[2];
-	//char letters[8][1];
-	char words[40320][8];
-
-	init_arrays(words, 40320, 8);
-	//標準入力から空白区切りで別々の文字列へ格納
-	fgets(buf, 256, stdin);
-	s_in[0] = strtok(buf, " ");//文字列
-	s_in[1] = strtok(NULL, "\n");//何番目
-
-	//深さ優先探査による全探査
-	//dfs("", s_in[0]);
-
 	return (0);
+}
+
+void dfs(char *cont, char *word, int rest, int len)
+{
+	if (check_word(word, len) == 0)
+	{
+		printf("%s\n", cont);
+		return (0);
+	}
+	for(int i = 0; i < len; i++)
+	{
+		//全探索
+	}
+}
+
+int main()
+{
+	char word[8];
+	int index;
+
+	scanf("%s %d", word, &index);
+	qsort(word, strlen(word), 1, strcmp);
+
+	dfs("", word, strlen(word), strlen(word));
+
+	return(0);
 }
