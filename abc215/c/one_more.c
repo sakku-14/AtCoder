@@ -9,14 +9,13 @@ void init_arrays(char words[40320][8], int row, int col)
 	}
 }
 
-/*
 void dfs(char *s, char *cs)
 {
 	for (int i = 0; i < strlen(cs); i++)
 	{
+		dfs();
 	}
 }
-*/
 
 int main ()
 {
