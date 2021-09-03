@@ -8,7 +8,7 @@ int main()
 	char **f_name, **l_name;
 	int i = 0, j = 0;
 
-	scanf("%d", &num);
+	scanf("%d\n", &num);
 	if (!(f_name = malloc(sizeof(char) * (num + 1))))
 		return (-1);
 	if (!(l_name = malloc(sizeof(char) * (num + 1))))
@@ -19,12 +19,15 @@ int main()
 			return (-1);
 		if (!(l_name[i] = malloc(sizeof(char) * 11)))
 			return (-1);
+		memset(f_name[i], '\0', 11);
+		memset(l_name[i], '\0', 11);
 		i++;
 	}
 	i = 0;
 	while (i < num)
 	{
-		scanf("%s %s", f_name[i], l_name[i]);
+		scanf("%s %s\n", f_name[i], l_name[i]);
+		printf("%s %s\n", f_name[i], l_name[i]);// for debug
 		i++;
 	}
 	i = 0;
@@ -47,6 +50,8 @@ int main()
 			}
 		}
 		i++;
+		if (i >= num)
+			break;
 	}
 	printf("No\n");
 	return (0);
